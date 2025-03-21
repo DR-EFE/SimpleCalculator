@@ -18,7 +18,7 @@ public class Calculadora extends javax.swing.JFrame {
 
     private List<String> historialOperaciones = new ArrayList<>();
     private String ultimaOperacion = ""; // Variable para almacenar la última operación
-    private double memoria = 0; // Variable para almacenar el valor en memoria
+    //private String buscarPunto = ""; // Variable para saber si ya hay punto decimal
 
     public Calculadora() {
         initComponents();
@@ -36,7 +36,6 @@ public class Calculadora extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         btn_historial = new javax.swing.JButton();
-        txtMemoria = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         btn_igual = new javax.swing.JButton();
         btn_9 = new javax.swing.JButton();
@@ -58,10 +57,6 @@ public class Calculadora extends javax.swing.JFrame {
         btn_0 = new javax.swing.JButton();
         btn_division = new javax.swing.JButton();
         btn_porcentaje = new javax.swing.JButton();
-        btn_MC = new javax.swing.JButton();
-        btn_MR = new javax.swing.JButton();
-        btn_MMinus = new javax.swing.JButton();
-        btn_MPLUS = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -127,7 +122,6 @@ public class Calculadora extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btn_historial, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 10, 20, 20));
-        jPanel1.add(txtMemoria, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 50, -1));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 150));
 
@@ -148,7 +142,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_igualActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_igual, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 420, -1, -1));
+        jPanel2.add(btn_igual, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
 
         btn_9.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_9.setForeground(new java.awt.Color(55, 62, 71));
@@ -164,7 +158,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_9ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
+        jPanel2.add(btn_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
 
         btn_exp.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 20)); // NOI18N
         btn_exp.setForeground(new java.awt.Color(55, 62, 71));
@@ -180,7 +174,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_expActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_exp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
+        jPanel2.add(btn_exp, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
 
         btn_ultimaoperacion.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 21)); // NOI18N
         btn_ultimaoperacion.setForeground(new java.awt.Color(55, 62, 71));
@@ -196,7 +190,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_ultimaoperacionActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_ultimaoperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 100, -1, -1));
+        jPanel2.add(btn_ultimaoperacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
 
         btn_multi.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 24)); // NOI18N
         btn_multi.setForeground(new java.awt.Color(55, 62, 71));
@@ -212,7 +206,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_multiActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_multi, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
+        jPanel2.add(btn_multi, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
 
         btn_resta.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 32)); // NOI18N
         btn_resta.setForeground(new java.awt.Color(55, 62, 71));
@@ -228,7 +222,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_restaActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_resta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
+        jPanel2.add(btn_resta, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 180, -1, -1));
 
         btn_suma.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 30)); // NOI18N
         btn_suma.setForeground(new java.awt.Color(55, 62, 71));
@@ -244,7 +238,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_sumaActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_suma, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 340, -1, -1));
+        jPanel2.add(btn_suma, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 260, -1, -1));
 
         btn_c.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 24)); // NOI18N
         btn_c.setForeground(new java.awt.Color(55, 62, 71));
@@ -260,7 +254,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_cActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
+        jPanel2.add(btn_c, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
 
         btn_7.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_7.setForeground(new java.awt.Color(55, 62, 71));
@@ -276,7 +270,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_7ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
+        jPanel2.add(btn_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, -1, -1));
 
         btn_8.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_8.setForeground(new java.awt.Color(55, 62, 71));
@@ -292,7 +286,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_8ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
+        jPanel2.add(btn_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 100, -1, -1));
 
         btn_6.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_6.setForeground(new java.awt.Color(55, 62, 71));
@@ -308,7 +302,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_6ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
+        jPanel2.add(btn_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 180, -1, -1));
 
         btn_5.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 24)); // NOI18N
         btn_5.setForeground(new java.awt.Color(55, 62, 71));
@@ -324,7 +318,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_5ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
+        jPanel2.add(btn_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 180, -1, -1));
 
         btn_4.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_4.setForeground(new java.awt.Color(55, 62, 71));
@@ -340,7 +334,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_4ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
+        jPanel2.add(btn_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 180, -1, -1));
 
         btn_3.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_3.setForeground(new java.awt.Color(55, 62, 71));
@@ -356,7 +350,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_3ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
+        jPanel2.add(btn_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 260, -1, -1));
 
         btn_2.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_2.setForeground(new java.awt.Color(55, 62, 71));
@@ -372,7 +366,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_2ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
+        jPanel2.add(btn_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 260, -1, -1));
 
         btn_1.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_1.setForeground(new java.awt.Color(55, 62, 71));
@@ -388,7 +382,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_1ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
+        jPanel2.add(btn_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, -1, -1));
 
         btn_dot.setFont(new java.awt.Font("Montserrat Medium", 1, 24)); // NOI18N
         btn_dot.setForeground(new java.awt.Color(55, 62, 71));
@@ -404,7 +398,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_dotActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_dot, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, -1, -1));
+        jPanel2.add(btn_dot, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 340, -1, -1));
 
         btn_0.setFont(new java.awt.Font("Montserrat Medium", 0, 24)); // NOI18N
         btn_0.setForeground(new java.awt.Color(55, 62, 71));
@@ -420,7 +414,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_0ActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 420, -1, -1));
+        jPanel2.add(btn_0, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 340, -1, -1));
 
         btn_division.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 24)); // NOI18N
         btn_division.setForeground(new java.awt.Color(55, 62, 71));
@@ -436,7 +430,7 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_divisionActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_division, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 100, -1, -1));
+        jPanel2.add(btn_division, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
 
         btn_porcentaje.setFont(new java.awt.Font("Montserrat Alternates Medium", 0, 22)); // NOI18N
         btn_porcentaje.setForeground(new java.awt.Color(55, 62, 71));
@@ -452,73 +446,9 @@ public class Calculadora extends javax.swing.JFrame {
                 btn_porcentajeActionPerformed(evt);
             }
         });
-        jPanel2.add(btn_porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, -1, -1));
+        jPanel2.add(btn_porcentaje, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 340, -1, -1));
 
-        btn_MC.setFont(new java.awt.Font("Montserrat Medium", 0, 13)); // NOI18N
-        btn_MC.setForeground(new java.awt.Color(55, 62, 71));
-        btn_MC.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.png"))); // NOI18N
-        btn_MC.setText("MC");
-        btn_MC.setFocusPainted(false);
-        btn_MC.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_MC.setPreferredSize(new java.awt.Dimension(50, 50));
-        btn_MC.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
-        btn_MC.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
-        btn_MC.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MCActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_MC, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        btn_MR.setFont(new java.awt.Font("Montserrat Medium", 0, 13)); // NOI18N
-        btn_MR.setForeground(new java.awt.Color(55, 62, 71));
-        btn_MR.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.png"))); // NOI18N
-        btn_MR.setText("MR");
-        btn_MR.setFocusPainted(false);
-        btn_MR.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_MR.setPreferredSize(new java.awt.Dimension(50, 50));
-        btn_MR.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
-        btn_MR.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
-        btn_MR.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MRActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_MR, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, -1, -1));
-
-        btn_MMinus.setFont(new java.awt.Font("Montserrat Medium", 0, 13)); // NOI18N
-        btn_MMinus.setForeground(new java.awt.Color(55, 62, 71));
-        btn_MMinus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.png"))); // NOI18N
-        btn_MMinus.setText("M-");
-        btn_MMinus.setFocusPainted(false);
-        btn_MMinus.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_MMinus.setPreferredSize(new java.awt.Dimension(50, 50));
-        btn_MMinus.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
-        btn_MMinus.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
-        btn_MMinus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MMinusActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_MMinus, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
-
-        btn_MPLUS.setFont(new java.awt.Font("Montserrat Medium", 0, 13)); // NOI18N
-        btn_MPLUS.setForeground(new java.awt.Color(55, 62, 71));
-        btn_MPLUS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn2.png"))); // NOI18N
-        btn_MPLUS.setText("M+");
-        btn_MPLUS.setFocusPainted(false);
-        btn_MPLUS.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btn_MPLUS.setPreferredSize(new java.awt.Dimension(50, 50));
-        btn_MPLUS.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1.png"))); // NOI18N
-        btn_MPLUS.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/images/btn1_pressed.png"))); // NOI18N
-        btn_MPLUS.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btn_MPLUSActionPerformed(evt);
-            }
-        });
-        jPanel2.add(btn_MPLUS, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 480));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 340, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -713,10 +643,6 @@ public class Calculadora extends javax.swing.JFrame {
             cambiarColorBtn2(btn_8);
             cambiarColorBtn2(btn_9);
             cambiarColorBtn2(btn_0);
-            cambiarColorBtn2(btn_MC);
-            cambiarColorBtn2(btn_MPLUS);
-            cambiarColorBtn2(btn_MMinus);
-            cambiarColorBtn2(btn_MR);
             cambiarColorBtn2(btn_dot);
             
             btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_2.png")));
@@ -726,47 +652,12 @@ public class Calculadora extends javax.swing.JFrame {
             btn_igual.setForeground(Color.decode("#2e3951"));
             modoOscuro = true;
         } else {
-            // Cambiar a modo claro
-            jPanel1.setBackground(Color.decode("#f4fdfb"));
-            jPanel2.setBackground(Color.decode("#ffffff")); 
-            txtOperacion.setForeground(Color.decode("#373e47")); 
-            txtResultado.setForeground(Color.decode("#373e47")); 
-            
-            // Restaurar colores de los botones tipo 1
-            restaurarColorBtn1(btn_multi);
-            restaurarColorBtn1(btn_suma);
-            restaurarColorBtn1(btn_resta);
-            restaurarColorBtn1(btn_exp);
-            restaurarColorBtn1(btn_division);
-            restaurarColorBtn1(btn_porcentaje);
-            restaurarColorBtn1(btn_c);
-            restaurarColorBtn1(btn_ultimaoperacion);
-            restaurarColorBtn1(btn_historial);
-
-            // Restaurar colores de los botones tipo 2
-            restaurarColorBtn2(btn_1);
-            restaurarColorBtn2(btn_2);
-            restaurarColorBtn2(btn_3);
-            restaurarColorBtn2(btn_4);
-            restaurarColorBtn2(btn_5);
-            restaurarColorBtn2(btn_6);
-            restaurarColorBtn2(btn_7);
-            restaurarColorBtn2(btn_8);
-            restaurarColorBtn2(btn_9);
-            restaurarColorBtn2(btn_0);
-            restaurarColorBtn2(btn_MC);
-            restaurarColorBtn2(btn_MPLUS);
-            restaurarColorBtn2(btn_MMinus);
-            restaurarColorBtn2(btn_MR);
-            restaurarColorBtn2(btn_dot);
-
-            btn_oscuro.setIcon(new ImageIcon(getClass().getResource("/images/darkmode_1.png")));
-            btn_igual.setIcon(new ImageIcon(getClass().getResource("/images/btn3.png")));
-            btn_igual.setPressedIcon(new ImageIcon(getClass().getResource("/images/btn1.png")));
-            btn_igual.setRolloverIcon(new ImageIcon(getClass().getResource("/images/btn1_pressed.png")));
-            btn_igual.setForeground(Color.decode("#ffffff")); // Color original del texto del botón igual
-            modoOscuro = false;
+            Calculadora frame = new Calculadora();
+            this.dispose();
+            frame.setVisible(true);
         }
+
+
     }//GEN-LAST:event_btn_oscuroActionPerformed
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
@@ -790,44 +681,6 @@ public class Calculadora extends javax.swing.JFrame {
         //addNumber("%");
         calcularPorcentaje();
     }//GEN-LAST:event_btn_porcentajeActionPerformed
-
-    private void btn_MCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MCActionPerformed
-        // Borrar la memoria
-        memoria = 0;
-        //txtResultado.setText("Memoria borrada");
-        txtMemoria.setText("");
-    }//GEN-LAST:event_btn_MCActionPerformed
-
-    private void btn_MRActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MRActionPerformed
-        // Recuperar el valor de la memoria y mostrarlo en la pantalla
-        txtOperacion.setText(Double.toString(memoria));
-    }//GEN-LAST:event_btn_MRActionPerformed
-
-    private void btn_MMinusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MMinusActionPerformed
-        try {
-            // Obtener el valor actual de la pantalla
-            double valorActual = Double.parseDouble(txtResultado.getText());
-            // Restar el valor actual de la memoria
-            memoria -= valorActual;
-            //txtResultado.setText("Memoria actualizada: " + memoria);
-            txtMemoria.setText("M");
-        } catch (NumberFormatException e) {
-            //txtResultado.setText("Error");
-        }
-    }//GEN-LAST:event_btn_MMinusActionPerformed
-
-    private void btn_MPLUSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_MPLUSActionPerformed
-        try {
-            // Obtener el valor actual de la pantalla
-            double valorActual = Double.parseDouble(txtResultado.getText());
-            // Sumar el valor actual a la memoria
-            memoria += valorActual;
-            //txtResultado.setText("Memoria actualizada: " + memoria);
-            txtMemoria.setText("M");
-        } catch (NumberFormatException e) {
-            //txtResultado.setText("Error");
-        }
-    }//GEN-LAST:event_btn_MPLUSActionPerformed
 
     private void calcularPorcentaje() {
         String operacion = txtOperacion.getText();
@@ -930,20 +783,6 @@ public class Calculadora extends javax.swing.JFrame {
         btn.setRolloverIcon(new ImageIcon(getClass().getResource("/images/btn1_pressed_dark.png")));
         btn.setForeground(Color.decode("#96a8a0"));
     }
-    
-    private void restaurarColorBtn1(JButton btn) {
-        btn.setIcon(new ImageIcon(getClass().getResource("/images/btn1.png")));
-        btn.setPressedIcon(new ImageIcon(getClass().getResource("/images/btn1.png")));
-        btn.setRolloverIcon(new ImageIcon(getClass().getResource("/images/btn1_pressed.png")));
-        btn.setForeground(Color.decode("#373e47")); // Color original del texto
-    }
-    
-    private void restaurarColorBtn2(JButton btn) {
-        btn.setIcon(new ImageIcon(getClass().getResource("/images/btn2.png")));
-        btn.setPressedIcon(new ImageIcon(getClass().getResource("/images/btn2.png")));
-        btn.setRolloverIcon(new ImageIcon(getClass().getResource("/images/btn1_pressed.png")));
-        btn.setForeground(Color.decode("#373e47")); // Color original del texto
-    }
 
     public void addNumber(String digito) {
         txtOperacion.setText(txtOperacion.getText() + digito);
@@ -960,10 +799,6 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JButton btn_7;
     private javax.swing.JButton btn_8;
     private javax.swing.JButton btn_9;
-    private javax.swing.JButton btn_MC;
-    private javax.swing.JButton btn_MMinus;
-    private javax.swing.JButton btn_MPLUS;
-    private javax.swing.JButton btn_MR;
     private javax.swing.JButton btn_c;
     private javax.swing.JButton btn_division;
     private javax.swing.JButton btn_dot;
@@ -980,7 +815,6 @@ public class Calculadora extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel txtMemoria;
     private javax.swing.JLabel txtOperacion;
     private javax.swing.JLabel txtResultado;
     // End of variables declaration//GEN-END:variables
