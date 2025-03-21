@@ -1,3 +1,10 @@
+
+## Integrantes
+* Javier Enrique Villaseñor Trejo 
+* García Méndez Juan Carlos  
+* Conde Basilio Leonardo  
+* Felipe Ramos Velázquez 
+
 # SimpleCalculator
 
 Java Calculator with Great UI
@@ -5,6 +12,7 @@ Java Calculator with Great UI
 ![Calculator Light](screenshots/light.png) ![Calculator Dark](screenshots/dark.png)
 
 I invite you as well to see my [YouTube Tutorial](https://www.youtube.com/watch?v=3A0aPvHBHk0) (Spanish) in order to get to know the development process. 
+
 
 ## Features
 
